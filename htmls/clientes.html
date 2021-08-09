@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script data-require="mustache.js@0.7.2" data-semver="0.7.2" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.js"></script>
+        <script>                  
+            function resgataEmpregados(){
+                /*
+                let response = fetch("http://localhost:8090/v1/empregados").then(
+                    (resp) => resp.json().then(function(data) {
+                            let empregados = data.results;
+                            console.log(data);
+                    })
+                )
+                */
+               
+
+                $.getJSON('http://localhost:8090/v1/empregados', function(data) {
+                    $.each(data, function (key, item) {
+                        console.log(item);
+                        //var template = $('#template').innerHTML;
+                        //var rendered = Mustache.render(template, item);
+                        //document.getElementById('tableClientes').innerHTML = rendered;
+
+                        
+                        $('#tableClientes').append('<tr><td>' + item.cpf + '</td> <td>' + 
+                                                                item.nome + '</td> <td>' + 
+                                                                item.agenciaNome + '</td> <td>' + 
+                                                                item.nomeInstituicao + '</td> </tr>'
+                                                   );
+                        
+                    });
+                });
+            }
+        </script>     
+    </head>    
+        <body onload="resgataEmpregados()">
+            <table id="tableClientes">
+                <th>Cpf</th>
+                <th>Nome</th>
+                <th>Agencia</th>
+                <th>Instituicao</th>
+            </table>
+    </body>
+</html>
