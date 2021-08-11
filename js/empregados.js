@@ -1,7 +1,3 @@
-$(document).ready(function () {
-   
-  });
-
 function resgataEmpregados(){  
         
     $.ajax
@@ -19,9 +15,10 @@ function resgataEmpregados(){
             
             $('#tableClientes').css("visibility", "visible");
             
-            var tableHtml = document.getElementById('tableClientes').innerHTML;
+            var tableHtml = document.getElementById('mustache').innerHTML;
             var rendered = Mustache.render(tableHtml, data);
-            $('#tableClientes').html(rendered);
+            $('#mustache').html(rendered);
+            
             
             //$('#tableClientes').DataTable();
             /*
