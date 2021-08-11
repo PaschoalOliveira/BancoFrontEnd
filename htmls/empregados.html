@@ -2,16 +2,40 @@
 <html>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script data-require="mustache.js@0.7.2" data-semver="0.7.2" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>        
         <script src="../js/auth/authUtils.js" type="text/javascript"></script>
         <script src="../js/empregados.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     </head>    
-        <body onload="resgataEmpregados()">
-            <table id="tableClientes">
-                <th>Cpf</th>
-                <th>Nome</th>
-                <th>Agencia</th>
-                <th>Instituicao</th>
+        <body onload="">
+            <div>
+                Lista de Empregados
+            </div>
+            <div>
+                <button class="button" onclick="resgataEmpregados()">Pesquisar</button>
+            </div>
+            <table id="tableClientes"  data-pagination="true" class="table table-bordered table-hover" style="margin-top: 120px;visibility: hidden;">
+                <thead>
+                    <th>Cpf</th>
+                    <th>Nome</th>
+                    <th>Agencia</th>
+                    <th>Instituicao</th>
+                </thead>
+                <tbody>
+                <!--{{#content}}-->
+                    <tr>
+                        <td>{{cpf}}</td>
+                        <td>{{nome}}</td>
+                        <td>{{agenciaNome}}</td>
+                        <td>{{nomeInstituicao}}</td>
+                    </tr>
+                <!--{{/content}}-->
+                </tbody>
             </table>
     </body>
 </html>

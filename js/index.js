@@ -3,6 +3,7 @@ function btnEntrar(){
                 login: $("#login").val(),
                 senha:$("#password").val()
             }
+        //Requisição para a API
         $.ajax
         ({
                 type: "GET",
