@@ -17,7 +17,19 @@
                 Lista de Empregados
             </div>
             <div>
-                <button class="button" onclick="resgataEmpregados()">Pesquisar</button>
+                <label for="txtNome">Nome</label>
+                <input id= "txtNome" type="text">
+            </div>
+            <div>
+                <label for="txtCpf">Cpf</label>
+                <input id= "txtCpf" type="text">
+            </div>
+            <div>
+                <label for="txtNomeAgencia">NomeAgencia</label>
+                <input id= "txtNomeAgencia" type="text">
+            </div>
+            <div>
+                <button class="button" onclick="resgataEmpregados(1)">Pesquisar</button>
             </div>
             <table id="tableClientes"  data-pagination="true" class="table table-bordered table-hover" style="margin-top: 120px;visibility: hidden;">
                 <thead>
@@ -37,5 +49,10 @@
                 <!-- {{/content}} -->
                 </tbody>
             </table>
+            <div id="paginacao" style="text-align:center">
+            {{#paginas}}
+                <a style="cursor: pointer;" onclick="resgataEmpregados('{{numero}}')">{{numero}}</a>
+              {{/paginas}}
+            </div>
     </body>
 </html>
