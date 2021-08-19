@@ -1,3 +1,28 @@
+function autorizar(){
+        var formData = new FormData()
+        formData.append('login', "moises");
+        formData.append('senha', 12345);
+
+        var dataObj = {};
+
+        dataObj = {...dataObj, ["login"] : "moises"}
+        dataObj = {...dataObj, ["senha"] : 12345};
+        $.ajax
+        ({
+                type: "POST",
+                url: "http://localhost:7090/api/usuariosApi/auth",
+                data:JSON.stringify(dataObj),
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function (data){
+                        
+                },
+                error: function (request, status, error) {
+                        alert("Problema na autenticação");
+                    }
+        });
+}
+
 function btnEntrar(){
         var usuario = {
                 login: $("#login").val(),
@@ -18,6 +43,7 @@ function btnEntrar(){
                         request.setRequestHeader('senha', usuario.senha);
                 },
                 success: function (data){
+                        autorizar();
                         window.location.href = './menu.html';
                 },
                 error: function (request, status, error) {

@@ -45,9 +45,9 @@ function salvaEmpregado(){
         formData.append('cpf', cpf);
     }
     var foto = $('#foto');
-    console.log(foto);
-    var blobFile = foto[0].files[0]
-   
+    var blobFile = foto[0].files[0];
+    
+    console.log(blobFile);
     formData.append('foto', blobFile);
 
     //console.log(dataObj);
