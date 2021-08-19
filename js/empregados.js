@@ -4,6 +4,7 @@ $(window).on('load', () => {
   mustacheTemplatePaginacao = document.getElementById('paginacao').innerHTML;
 })
 
+
 function resgataEmpregados(numeroPagina){  
         
     numeroPagina--;

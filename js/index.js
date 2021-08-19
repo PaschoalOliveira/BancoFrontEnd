@@ -18,7 +18,7 @@ function btnEntrar(){
                         request.setRequestHeader('senha', usuario.senha);
                 },
                 success: function (data){
-                        window.location.href = './empregados.html';
+                        window.location.href = './menu.html';
                 },
                 error: function (request, status, error) {
                         alert("Usuário ou senha inválidos");
